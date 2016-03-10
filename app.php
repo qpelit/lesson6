@@ -1,8 +1,11 @@
 <?php
+
 	// require another php file
 	// ../../../ => 3 folders back
-	require_once("../../../config.php");
+	require_once("../../config.php");
+
 	$everything_was_okay = true;
+
 	//*********************
 	// TO field validation
 	//*********************
@@ -16,6 +19,7 @@
 	}else{
 		$everything_was_okay = false; // do not exist
 	}
+
 	//check if there is variable in the URL
 	if(isset($_GET["message"])){
 		
@@ -57,9 +61,9 @@
 		// 2 username
 		// 3 password
 		// 4 database
-		$mysql = new mysqli("localhost", $db_username, $db_password, "webpr2016_romil");
+		$mysql = new mysqli("localhost", $db_username, $db_password, "webpr2016_qpelit");
 		
-		$stmt = $mysql->prepare("INSERT INTO messages_sample (recipient, message) VALUES (?,?)");
+		$stmt = $mysql->prepare("INSERT INTO messages (recipient, message) VALUES (?,?)");
 			
 		//echo error
 		echo $mysql->error;
@@ -83,6 +87,7 @@
 	}
 	
 	
+
 ?>
 <br>
 <a href="table.php">table</a>
